@@ -1,6 +1,5 @@
-[![npm version](https://badge.fury.io/js/cmd-ranking.svg)](https://badge.fury.io/js/cmd-ranking)
+[![npm version](https://badge.fury.io/js/check-stats-modules.svg)](https://badge.fury.io/js/check-stats-modules)
 ![node](https://img.shields.io/node/v/passport.svg?style=social)
-![Packagist](https://img.shields.io/packagist/l/doctrine/orm.svg)
 [![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE)
 
 # check-stats-modules
