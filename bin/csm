@@ -11,10 +11,6 @@ const yargs = require('yargs')
          alias: 'from',
          describe: 'Specify the from of the period to be counted'
       },
-      'n': {
-         alias: 'no-options',
-         describe: 'Command name only'
-      },
       'v': {
          alias: 'version',
          describe: 'Show version'
