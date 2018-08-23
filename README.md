@@ -36,5 +36,9 @@ $ csm check-stats-modules cmd-ranking -f 2018-01-01
 -f, --from        Specify the from of the period to be counted
 ```
 
+## License
+
+[MIT](https://github.com/k-kuwahara/check-stats-modules/LICENSE)
+
 # Others
 Please write a new [issues](https://github.com/k-kuwahara/check-stats-modules/issues)! Please send me [PRs](https://github.com/k-kuwahara/check-stats-modules/pulls)!
