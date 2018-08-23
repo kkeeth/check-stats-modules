@@ -6,13 +6,13 @@
 
 `check-stats-modules (csm)` is is a CLI application that obtains the specified npm module's stats. After specifying the module name and period, the number of downloads during that period is acquired and displayed on the terminal.
 
-# Installation
+## Installation
 
 ```cmd
 $ npm install -g check-stats-modules
 ```
 
-# Usage (example)
+## Usage (example)
 
 * check the stats of one module from yesterday
 
@@ -30,7 +30,7 @@ $ csm check-stats-modules cmd-ranking -f 2018-01-01
   {"downloads":399,"start":"2018-01-01","end":"2018-08-23","package":"cmd-ranking"}
 ```
 
-# Options
+## Options
 
 ```
 -f, --from        Specify the from of the period to be counted
