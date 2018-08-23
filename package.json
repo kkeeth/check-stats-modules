@@ -1,0 +1,36 @@
+{
+  "name": "check-stats-modules",
+  "version": "0.0.1",
+  "description": "`check-stats-modules (csm)` is is a CLI application that obtains the specified npm module's stats. After specifying the module name and period, the number of downloads during that period is acquired and displayed on the terminal.",
+  "license": "MIT",
+  "main": "./lib/check-stats-modules",
+  "bin": {
+    "check-stats-modules": "./bin/check-stats-modules",
+    "csm": "./bin/csm"
+  },
+  "dependencies": {
+    "chalk": "^2.4.1",
+    "moment": "^2.22.2",
+    "node-alias": "^1.0.4",
+    "npm-stat-api": "^1.0.3",
+    "yargs": "^12.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {},
+  "engines": {
+    "node": ">=8.0"
+  },
+  "keywords": [
+    "cli",
+    "check-stats-modules"
+  ],
+  "author": {
+    "name": "k-kuwahara",
+    "email": "zensin0082@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/k-kuwahara/check-stats-modules"
+  },
+  "homepage": "https://github.com/k-kuwahara/check-stats-modules#readme"
+}

@@ -1,0 +1,28 @@
+#!/usr/bin/env node
+'use strict'
+
+const csm = require('../lib/check-stats-modules')
+const chalk = require('chalk');
+const yargs = require('yargs')
+   .usage('Usage:\n' + ('' + chalk.green.bold('  $0 <module names> [-f <yyyy-mm-dd>]\n')))
+   .example('' + chalk.green.bold('$0 cmd-ranking -f 2018-01-01'))
+   .options({
+      'f': {
+         alias: 'from',
+         describe: 'Specify the from of the period to be counted'
+      },
+      'n': {
+         alias: 'no-options',
+         describe: 'Command name only'
+      },
+      'v': {
+         alias: 'version',
+         describe: 'Show version'
+      },
+      'h': {
+         alias: 'help',
+         describe: 'Show help'
+      }
+   })
+   .locale('en')
+csm.run()
