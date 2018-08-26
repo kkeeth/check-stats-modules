@@ -15,6 +15,16 @@ const yargs = require('yargs')
          alias: 'version',
          describe: 'Show version'
       },
+      'y': {
+         alias: 'year',
+         describe: 'Set "from" 1 year',
+         type: 'boolean'
+      },
+      'm': {
+         alias: 'month',
+         describe: 'Set "from" 1 month',
+         type: 'boolean'
+      },
       'h': {
          alias: 'help',
          describe: 'Show help'
