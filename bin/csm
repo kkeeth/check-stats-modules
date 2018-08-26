@@ -2,7 +2,7 @@
 'use strict'
 
 const csm = require('../lib/check-stats-modules')
-const chalk = require('chalk');
+const chalk = require('chalk')
 const yargs = require('yargs')
    .usage('Usage:\n' + ('' + chalk.green.bold('  $0 <module names> [-f <YYYY-MM-DD>]\n')))
    .example('' + chalk.green.bold('$0 cmd-ranking -f 2018-01-01'))
