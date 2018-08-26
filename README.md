@@ -17,7 +17,7 @@ $ npm install -g check-stats-modules
 * check the stats of one module from yesterday
 
 ```cmd
-$ csm check-stats-modules
+$ csm cmd-ranking
 
   {"downloads":0,"start":"2018-08-22","end":"2018-08-23","package":"cmd-ranking"}
 ```
@@ -25,15 +25,31 @@ $ csm check-stats-modules
 * check the stats of two modules from 2018-01-01
 
 ```cmd
-$ csm check-stats-modules cmd-ranking -f 2018-01-01
+$ csm cmd-ranking check-stats-modules -f 2018-01-01
 
-  {"downloads":399,"start":"2018-01-01","end":"2018-08-23","package":"cmd-ranking"}
+  {"downloads":399,"start":"2018-01-01","end":"2018-08-26","package":"cmd-ranking"}
+
+  {"downloads":50,"start":"2018-01-01","end":"2018-08-26","package":"check-stats-modules"}
+```
+
+* check the stats of two modules from last month
+
+```cmd
+$ csm cmd-ranking check-stats-modules -m
+
+  {"downloads":96,"start":"2018-07-26","end":"2018-08-26","package":"cmd-ranking"}
+
+  {"downloads":50,"start":"2018-07-26","end":"2018-08-26","package":"check-stats-modules"}
 ```
 
 ## Options
 
 ```
 -f, --from        Specify the from of the period to be counted
+-v, --version     Show version number
+-y, --year        Set "from" 1 year
+-m, --month       Set "from" 1 month
+-h, --help        Show help
 ```
 
 ## License
