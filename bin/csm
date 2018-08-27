@@ -1,34 +1,4 @@
 #!/usr/bin/env node
-'use strict'
+'use strict';
 
-const csm = require('../lib/check-stats-modules')
-const chalk = require('chalk')
-const yargs = require('yargs')
-   .usage('Usage:\n' + ('' + chalk.green.bold('  $0 <module names> [-f <YYYY-MM-DD>]\n')))
-   .example('' + chalk.green.bold('$0 cmd-ranking -f 2018-01-01'))
-   .options({
-      'f': {
-         alias: 'from',
-         describe: 'Specify the from of the period to be counted'
-      },
-      'v': {
-         alias: 'version',
-         describe: 'Show version'
-      },
-      'y': {
-         alias: 'year',
-         describe: 'Set "from" 1 year',
-         type: 'boolean'
-      },
-      'm': {
-         alias: 'month',
-         describe: 'Set "from" 1 month',
-         type: 'boolean'
-      },
-      'h': {
-         alias: 'help',
-         describe: 'Show help'
-      }
-   })
-   .locale('en')
-csm.run()
+require('../lib/check-stats-modules')();
