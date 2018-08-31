@@ -16,6 +16,11 @@ module.exports = require('yargs')
          describe: 'Set "from" 1 year',
          type: 'boolean'
       },
+      't': {
+        alias: 'this-year',
+        describe: 'Set "from" January 1 of this year',
+         type: 'boolean'
+      },
       'm': {
          alias: 'month',
          describe: 'Set "from" 1 month',

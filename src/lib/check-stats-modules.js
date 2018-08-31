@@ -62,6 +62,9 @@ const show_stats = () => {
    else if (args.y) {
       from = moment().subtract(1, 'years').format('YYYY-MM-DD')
    }
+   else if (args.t) {
+      from = `${moment().year()}-01-01`
+   }
    else {
       from = args.f || moment().add(-1, 'days').format('YYYY-MM-DD')
    }
