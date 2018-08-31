@@ -45,11 +45,12 @@ $ csm cmd-ranking check-stats-modules -m
 ## Options
 
 ```
--f, --from        Specify the from of the period to be counted
--v, --version     Show version number
--y, --year        Set "from" 1 year
--m, --month       Set "from" 1 month
--h, --help        Show help
+-f, --from       Specify the from of the period to be counted
+-v, --version    Show version number                                 [boolean]
+-y, --year       Set "from" 1 year                                   [boolean]
+-t, --this-year  Set "from" January 1 of this year                   [boolean]
+-m, --month      Set "from" 1 month                                  [boolean]
+-h, --help       Show help                                           [boolean]
 ```
 
 ## License
