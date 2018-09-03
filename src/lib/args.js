@@ -26,6 +26,11 @@ module.exports = require('yargs')
          describe: 'Set "from" 1 month',
          type: 'boolean'
       },
+      'w': {
+         alias: 'week',
+         describe: 'Set "from" 1 week',
+         type: 'boolean'
+      },
       'h': {
          alias: 'help',
          describe: 'Show help'
