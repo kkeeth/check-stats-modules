@@ -50,6 +50,7 @@ $ csm cmd-ranking check-stats-modules -m
 -y, --year       Set "from" 1 year                                   [boolean]
 -t, --this-year  Set "from" January 1 of this year                   [boolean]
 -m, --month      Set "from" 1 month                                  [boolean]
+-w, --week       Set "from" 1 week                                   [boolean]
 -h, --help       Show help                                           [boolean]
 ```
 
