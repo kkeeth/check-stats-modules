@@ -16,8 +16,6 @@ module.exports = () => {
    // 'help' is top priority option
    if (args.h) {
       show_help()
-   } else if (args.v) {
-      console.log(pkg.version)
    } else if (args._.length === 0) {
       show_help(chalk.yellow.bold('Please enter the module names at least one. \n'))
    } else {

@@ -1,3 +1,11 @@
+```
+           __                   __                    __            __                                          __            __
+  _____   / /_   ___   _____   / /__          _____  / /_  ____ _  / /_   _____          ____ ___   ____   ____/ /  __  __   / /  ___    _____
+ / ___/  / __ \ / _ \ / ___/  / //_/ ______  / ___/ / __/ / __ `/ / __/  / ___/ ______  / __ `__ \ / __ \ / __  /  / / / /  / /  / _ \  / ___/
+/ /__   / / / //  __// /__   / ,<   /_____/ (__  ) / /_  / /_/ / / /_   (__  ) /_____/ / / / / / // /_/ // /_/ /  / /_/ /  / /  /  __/ (__  )
+\___/  /_/ /_/ \___/ \___/  /_/|_|         /____/  \__/  \__,_/  \__/  /____/         /_/ /_/ /_/ \____/ \__,_/   \__,_/  /_/   \___/ /____/
+```
+
 [![npm version](https://badge.fury.io/js/check-stats-modules.svg)](https://badge.fury.io/js/check-stats-modules)
 ![node](https://img.shields.io/badge/node-%3E%3D%208.0.0-brightgreen.svg?style=social)
 [![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE)
@@ -17,19 +25,27 @@ $ npm install -g check-stats-modules
 * check the stats of one module from yesterday
 
 ```cmd
-$ csm cmd-ranking
+$ csm check-stats-modules
 
-  {"downloads":0,"start":"2018-08-22","end":"2018-08-23","package":"cmd-ranking"}
+╔═══════════╤════════════╤════════════╤═════════════════════╗
+║ downloads ║ start      ║ end        ║ package             ║
+╟───────────┼────────────┼────────────┼─────────────────────╢
+║ 41        ║ 2018-09-03 ║ 2018-09-04 ║ check-stats-modules ║
+╚═══════════╧════════════╧════════════╧═════════════════════╝
 ```
 
-* check the stats of two modules from 2018-01-01
+* check the stats of two modules from 2018-06-01
 
 ```cmd
-$ csm cmd-ranking check-stats-modules -f 2018-01-01
+$ csm cmd-ranking check-stats-modules -f 2018-06-01
 
-  {"downloads":399,"start":"2018-01-01","end":"2018-08-26","package":"cmd-ranking"}
-
-  {"downloads":50,"start":"2018-01-01","end":"2018-08-26","package":"check-stats-modules"}
+╔═══════════╤════════════╤════════════╤═════════════════════╗
+║ downloads ║ start      ║ end        ║ package             ║
+╟───────────┼────────────┼────────────┼─────────────────────╢
+║ 232       ║ 2018-06-01 ║ 2018-09-04 ║ cmd-ranking         ║
+╟───────────┼────────────┼────────────┼─────────────────────╢
+║ 263       ║ 2018-06-01 ║ 2018-09-04 ║ check-stats-modules ║
+╚═══════════╧════════════╧════════════╧═════════════════════╝
 ```
 
 * check the stats of two modules from last month
@@ -37,9 +53,13 @@ $ csm cmd-ranking check-stats-modules -f 2018-01-01
 ```cmd
 $ csm cmd-ranking check-stats-modules -m
 
-  {"downloads":96,"start":"2018-07-26","end":"2018-08-26","package":"cmd-ranking"}
-
-  {"downloads":50,"start":"2018-07-26","end":"2018-08-26","package":"check-stats-modules"}
+╔═══════════╤════════════╤════════════╤═════════════════════╗
+║ downloads ║ start      ║ end        ║ package             ║
+╟───────────┼────────────┼────────────┼─────────────────────╢
+║ 66        ║ 2018-08-04 ║ 2018-09-04 ║ cmd-ranking         ║
+╟───────────┼────────────┼────────────┼─────────────────────╢
+║ 263       ║ 2018-08-04 ║ 2018-09-04 ║ check-stats-modules ║
+╚═══════════╧════════════╧════════════╧═════════════════════╝
 ```
 
 ## Options
