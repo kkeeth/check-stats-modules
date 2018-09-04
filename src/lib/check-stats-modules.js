@@ -4,6 +4,7 @@ const yargs  = require('yargs')
 const chalk  = require('chalk')
 const pkg    = require('../package.json')
 const args   = require('./args')
+const json2table = require('./json2table.js')
 
 /**
  * run function
@@ -20,7 +21,7 @@ module.exports = () => {
    } else if (args._.length === 0) {
       show_help(chalk.yellow.bold('Please enter the module names at least one. \n'))
    } else {
-      const rank = show_stats()
+      show_stats()
    }
 }
 
@@ -72,10 +73,17 @@ const show_stats = () => {
       from = args.f || moment().add(-1, 'days').format('YYYY-MM-DD')
    }
    const today = moment().format('YYYY-MM-DD')
+   const stats = []
    
    for (let mod of args._) {
       npm.stat(mod, from, today, (err, res) => {
-         console.log(JSON.stringify(res) + "\n")
+         stats.push(res)
+
+         if (stats.length === args._.length) {
+            // Formatted and displayed in table format
+            const ret = json2table(stats)
+            ret.show()
+         }
       })
    }
 }
