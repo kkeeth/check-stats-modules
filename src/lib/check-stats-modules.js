@@ -2,7 +2,6 @@ const npm    = require('npm-stat-api')
 const moment = require('moment')
 const yargs  = require('yargs')
 const chalk  = require('chalk')
-const pkg    = require('../package.json')
 const args   = require('./args')
 const json2table = require('./json2table.js')
 
@@ -13,10 +12,8 @@ const json2table = require('./json2table.js')
  * @return void
  */
 module.exports = () => {
-   // 'help' is top priority option
-   if (args.h) {
-      show_help()
-   } else if (args._.length === 0) {
+   // check specification of modules name
+   if (args._.length === 0) {
       show_help(chalk.yellow.bold('Please enter the module names at least one. \n'))
    } else {
       show_stats()
