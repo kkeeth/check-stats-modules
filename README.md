@@ -12,7 +12,7 @@
 
 # check-stats-modules
 
-`check-stats-modules (csm)` is is a CLI application that obtains the specified npm module's stats. After specifying the module name and period, the number of downloads during that period is acquired and displayed on the terminal.
+`check-stats-modules (csm)` is a CLI application that obtains the specified npm module's stats. After specifying the module name and period, the number of downloads during that period is acquired and displayed on the terminal.
 
 ## Installation
 
