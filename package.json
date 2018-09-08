@@ -26,15 +26,14 @@
     "gulp-plumber": "^1.2.0",
     "gulp-rename": "^1.4.0",
     "proxyquire": "^2.1.0",
-    "sinon": "^6.2.0",
-    "tap-nyan": "^1.1.0"
+    "sinon": "^6.2.0"
   },
   "scripts": {
     "dev": "gulp",
     "build": "gulp babel:bin && gulp babel:lib",
     "build:bin": "gulp babel:bin",
     "build:lib": "gulp babel:lib",
-    "test": "ava ./test --verbose --tap | tap-nyan"
+    "test": "ava ./test --verbose"
   },
   "engines": {
     "node": ">=8.0"
