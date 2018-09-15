@@ -27,13 +27,18 @@ module.exports = () => {
    
    for (let mod of args._) {
       npm.stat(mod, from, today, (err, res) => {
+         if (err) {
+            res.downloads = res.error
+            res.start = from
+            res.end = today
+            res.package = mod
+            delete res.error
+         }
          stats.push(res)
 
-         if (stats.length === args._.length) {
-            // Formatted and displayed in table format
-            const ret = json2table(stats)
-            ret.show()
-         }
+         // Formatted and displayed in table format
+         const ret = json2table(stats)
+         ret.show()
       })
    }
 }
