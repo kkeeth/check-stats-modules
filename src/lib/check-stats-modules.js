@@ -1,4 +1,4 @@
-const npm    = require('npm-stat-api')
+const npm    = require('npm-stats-api')
 const moment = require('moment')
 const yargs  = require('yargs')
 const chalk  = require('chalk')
@@ -36,9 +36,11 @@ module.exports = () => {
          }
          stats.push(res)
 
-         // Formatted and displayed in table format
-         const ret = json2table(stats)
-         ret.show()
+         if (args._.length === stats.length) {
+            // Formatted and displayed in table format
+            const ret = json2table(stats)
+            ret.show()
+         }
       })
    }
 }
