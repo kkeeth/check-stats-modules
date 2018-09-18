@@ -1,6 +1,6 @@
 const chalk = require('chalk')
 module.exports = require('yargs')
-   .usage('Usage:\n' + ('' + chalk.green.bold('  $0 <module names> [-f <YYYY-MM-DD>]\n')))
+   .usage('Usage:\n' + ('' + chalk.green.bold('  $0 <module names> [-w | -m | -y | -t] [-f <YYYY-MM-DD>]\n')))
    .example('' + chalk.green.bold('$0 cmd-ranking -f 2018-01-01'))
    .options({
       'f': {
