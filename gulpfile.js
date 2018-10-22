@@ -38,8 +38,10 @@ gulp.task('babel:lib', () => {
 })
 
 gulp.task('watch', () => {
-   gulp.watch(path.bin, ['babel:bin'])
-   gulp.watch(path.lib, ['babel:lib'])
-});
+   gulp.series(gulp.parallel(
+      gulp.watch(path.bin, gulp.task('babel:bin')),
+      gulp.watch(path.lib, gulp.task('babel:lib'))
+   ))
+})
 
-gulp.task('default', ['babel:bin', 'babel:lib', 'watch'])
+gulp.task('default', gulp.series(gulp.parallel('babel:bin', 'babel:lib', 'watch')))
