@@ -24,7 +24,7 @@ exports.get_from_date = () => {
    // check from date options
    if (args.f && !moment(args.f, 'YYYY-MM-DD', true).isValid()) {
       require('./utils').show_help('Please enter the date correctly. \n')
-      return
+      process.exit(0)
    }
    else if (args.m) {
       from = moment().subtract(1, 'months').format('YYYY-MM-DD');
