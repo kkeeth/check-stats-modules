@@ -37,8 +37,10 @@ gulp.task('babel:lib', () => {
       .pipe(gulp.dest('./lib'))
 })
 
-// watching files
-gulp.watch(path.bin, gulp.series('babel:bin'))
-gulp.watch(path.lib, gulp.series('babel:lib'))
+// watch files
+gulp.task('watch', () => {
+   gulp.watch(path.bin, gulp.series('babel:bin'))
+   gulp.watch(path.lib, gulp.series('babel:lib'))
+})
 
-gulp.task('default', gulp.series('babel:bin', 'babel:lib'))
+gulp.task('default', gulp.series('babel:bin', 'babel:lib', 'watch'))
