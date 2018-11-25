@@ -1,6 +1,9 @@
 const rootDir = '../lib'
+const utils = require(`${rootDir}/utils`)
 const test = require('ava')
 const proxyquire = require('proxyquire')
+const os = require('os')
+const exec = require('child_process').exec;
 
 // As these options are only processing of external libraries, check only one
 // 'week', 'month', 'year'
@@ -124,4 +127,19 @@ test('check from date when f option and specify symbols', async t => {
    const error = await get_from_date()
 
    t.ifError(error)
+})
+
+test('check show help method', async t => {
+   const error_message = 'hogehoge'
+
+   exec('./bin/csm -h', (err, stdout, stderr) => {
+      console.info('error ***')
+      console.info(err)
+      console.info('stdout ***')
+      console.info(stdout)
+      console.info('stderr ***')
+      console.info(stderr)
+   })
+
+   t.true(utils.show_help(error_message) == 'hogehoge')
 })

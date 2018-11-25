@@ -6,8 +6,8 @@
  */
 exports.show_help = (text) => {
    if (text)
-      console.log(require('chalk').yellow.bold(text))
-   require('yargs').showHelp()
+      console.log(require('chalk').yellow.bold(text));
+   require('yargs').showHelp();
 }
 
 /**
@@ -24,7 +24,7 @@ exports.get_from_date = () => {
    // check from date options
    if (args.f && !moment(args.f, 'YYYY-MM-DD', true).isValid()) {
       require('./utils').show_help('Please enter the date correctly. \n')
-      process.exit(0)
+      return
    }
    else if (args.m) {
       from = moment().subtract(1, 'months').format('YYYY-MM-DD');

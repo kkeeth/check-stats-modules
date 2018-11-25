@@ -18,7 +18,7 @@ module.exports = () => {
    if (args._.length === 0) {
       utils.show_help(chalk.yellow.bold('Please enter the module names at least one. \n'))
       return
-   }
+   } 
 
    // set from date
    const from = utils.get_from_date()
