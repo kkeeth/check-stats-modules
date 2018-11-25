@@ -19,9 +19,8 @@ test('main method check', async t => {
 
    const csm = proxyquire(`${rootDir}/check-stats-modules`, {
       './args': argsStub,
-      'npm-stat-api': nsaStub
+      'npm-stats-api': nsaStub
    })
 
-console.info(csm)
    t.true(csm() === true)
 })
