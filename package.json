@@ -1,6 +1,6 @@
 {
   "name": "check-stats-modules",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "description": "check-stats-modules(csm) is is a CLI application that obtains the specified npm module's stats. After specifying the module name and period, the number of downloads during that period is acquired and displayed on the terminal.",
   "license": "MIT",
   "main": "./lib/check-stats-modules",
