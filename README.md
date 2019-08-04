@@ -7,6 +7,7 @@
 ```
 
 [![npm version](https://badge.fury.io/js/check-stats-modules.svg)](https://badge.fury.io/js/check-stats-modules)
+[![Code Climate](https://codeclimate.com/github/k-kuwahara/check-stats-modules/badges/gpa.svg)](https://codeclimate.com/github/k-kuwahara/check-stats-modules)
 ![node](https://img.shields.io/badge/node-%3E%3D%208.0.0-brightgreen.svg?style=social)
 [![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE)
 
