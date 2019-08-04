@@ -19,28 +19,23 @@ exports.show_help = (text) => {
 exports.get_from_date = () => {
    const args = require('./args')
    const moment = require('moment')
-   let from = ''
 
    // check from date options
    if (args.f && !moment(args.f, 'YYYY-MM-DD', true).isValid()) {
       require('./utils').show_help('Please enter the date correctly. \n')
       process.exit(0)
    }
-   else if (args.m) {
-      from = moment().subtract(1, 'months').format('YYYY-MM-DD');
+   if (args.m) {
+      return moment().subtract(1, 'months').format('YYYY-MM-DD');
    }
-   else if (args.y) {
-      from = moment().subtract(1, 'years').format('YYYY-MM-DD');
+   if (args.y) {
+      return moment().subtract(1, 'years').format('YYYY-MM-DD');
    }
-   else if (args.t) {
-      from = moment().year() + '-01-01';
+   if (args.t) {
+      return moment().year() + '-01-01';
    }
-   else if (args.w) {
-      from = moment().subtract(1, 'weeks').format('YYYY-MM-DD');
+   if (args.w) {
+      return moment().subtract(1, 'weeks').format('YYYY-MM-DD');
    }
-   else {
-      from = args.f || moment().add(-1, 'days').format('YYYY-MM-DD');
-   }
-
-   return from
+   return args.f || moment().add(-1, 'days').format('YYYY-MM-DD');
 }
