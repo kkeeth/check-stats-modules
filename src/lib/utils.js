@@ -26,16 +26,16 @@ exports.get_from_date = () => {
       process.exit(0)
    }
    if (args.m) {
-      return moment().subtract(1, 'months').format('YYYY-MM-DD');
+      return moment().subtract(1, 'months').format('YYYY-MM-DD')
    }
    if (args.y) {
-      return moment().subtract(1, 'years').format('YYYY-MM-DD');
+      return moment().subtract(1, 'years').format('YYYY-MM-DD')
    }
    if (args.t) {
-      return moment().year() + '-01-01';
+      return moment().year() + '-01-01'
    }
    if (args.w) {
-      return moment().subtract(1, 'weeks').format('YYYY-MM-DD');
+      return moment().subtract(1, 'weeks').format('YYYY-MM-DD')
    }
-   return args.f || moment().add(-1, 'days').format('YYYY-MM-DD');
+   return (args.f || moment().add(-1, 'days').format('YYYY-MM-DD'))
 }
