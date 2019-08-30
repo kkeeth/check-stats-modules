@@ -14,26 +14,27 @@
     "moment": "^2.24.0",
     "node-alias": "^1.0.4",
     "npm-stats-api": "^1.0.1",
-    "yargs": "^13.2.2"
+    "yargs": "^14.0.0"
   },
   "devDependencies": {
-    "ava": "^1.3.1",
+    "@babel/preset-env": "^7.5.5",
+    "ava": "^2.3.0",
     "babel": "^6.23.0",
     "babel-core": "^6.26.3",
     "babel-preset-es2015": "^6.24.1",
     "gulp": "^4.0.0",
-    "gulp-babel": "^7.0.1",
+    "gulp-babel": "^8.0.0",
     "gulp-plumber": "^1.2.1",
     "gulp-rename": "^1.4.0",
-    "proxyquire": "^2.1.0",
-    "sinon": "^7.2.7"
+    "proxyquire": "^2.1.3",
+    "sinon": "^7.4.1"
   },
   "scripts": {
     "dev": "gulp",
     "build": "gulp babel:bin && gulp babel:lib",
     "build:bin": "gulp babel:bin",
     "build:lib": "gulp babel:lib",
-    "test": "ava ./test --verbose"
+    "test": "ava --verbose"
   },
   "engines": {
     "node": ">=8.0"

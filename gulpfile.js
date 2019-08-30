@@ -16,7 +16,7 @@ gulp.task('babel:bin', () => {
          }
       }))
       .pipe(babel({
-         presets: ['es2015']
+         presets: ['@babel/preset-env']
       }))
       .pipe(rename({
          extname: ''
@@ -32,7 +32,7 @@ gulp.task('babel:lib', () => {
         }
       }))
       .pipe(babel({
-        presets: ['es2015']
+        presets: ['@babel/preset-env']
       }))
       .pipe(gulp.dest('./lib'))
 })
