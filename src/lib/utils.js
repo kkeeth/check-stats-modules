@@ -20,10 +20,13 @@ exports.get_from_date = () => {
    const args = require('./args')
    const moment = require('moment')
 
+   // check moudle names
+   if (args._.length === 0) {
+      return 'Please enter the module names at least one. \n'
+   }
    // check from date options
    if (args.f && !moment(args.f, 'YYYY-MM-DD', true).isValid()) {
-      require('./utils').show_help('Please enter the date correctly. \n')
-      process.exit(0)
+      return 'Please enter the date correctly. \n'
    }
    if (args.m) {
       return moment().subtract(1, 'months').format('YYYY-MM-DD')

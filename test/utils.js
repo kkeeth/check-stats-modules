@@ -2,6 +2,11 @@ const rootDir = '../lib'
 const test = require('ava')
 const proxyquire = require('proxyquire')
 
+const errorMessages = {
+   dateFormatError: 'Please enter the date correctly. \n',
+   moduleNameNull: 'Please enter the module names at least one. \n'
+}
+
 // As these options are only processing of external libraries, check only one
 // 'week', 'month', 'year'
 test('check from date when -m option', async t => {
@@ -87,7 +92,7 @@ test('check from date when f option and specify incorrect date', async t => {
    })
    const error = await get_from_date()
 
-   t.ifError(error)
+   t.is(error, errorMessages.dateFormatError)
 })
 
 test('check from date when f option and specify not exist date', async t => {
@@ -105,7 +110,7 @@ test('check from date when f option and specify not exist date', async t => {
 
    const error = await get_from_date()
 
-   t.ifError(error)
+   t.is(error, errorMessages.dateFormatError)
 })
 
 test('check from date when f option and specify symbols', async t => {
@@ -123,5 +128,25 @@ test('check from date when f option and specify symbols', async t => {
 
    const error = await get_from_date()
 
-   t.ifError(error)
+   t.is(error, errorMessages.dateFormatError)
 })
+
+test('check when module name is not specified', async t => {
+   const argsStub = {
+      _: [],
+      f: "2019-08-30",
+      m: false,
+      y: false,
+      t: false,
+      w: false
+   }
+
+   const {get_from_date} = proxyquire(`${rootDir}/utils`, {
+      './args': argsStub
+   })
+
+   const error = await get_from_date()
+
+   t.is(error, errorMessages.moduleNameNull)
+})
+

@@ -14,17 +14,16 @@ const utils = require('./utils')
  * @return void
  */
 module.exports = () => {
-   // check specification of modules name
-   if (args._.length === 0) {
-      utils.show_help(chalk.yellow.bold('Please enter the module names at least one. \n'))
-      return
-   }
-
    // set from date
    const from = utils.get_from_date()
    const today = moment().format('YYYY-MM-DD')
    const stats = []
-   
+
+   if (`${new Date(from)}` === 'Invalid Date') {
+      utils.show_help(from)
+      return
+   }
+
    for (let mod of args._) {
       npm.stat(mod, from, today, (err, res) => {
          if (err) {
