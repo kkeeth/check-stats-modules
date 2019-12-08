@@ -57,8 +57,11 @@ exports.get_end_date = () => {
    if (args._.length === 0) {
       return 'Please enter the module names at least one. \n'
    }
-   if (!args.s) {
+   if (!args.s && args.e) {
       return 'Please enter the start date. \nBecause when using -s option, then start date is required. \n'
+   }
+   if (!args.e || Object.keys(args).length === 2) {
+      return moment().format('YYYY-MM-DD')
    }
    // check end date options
    if (args.e && !moment(args.e, 'YYYY-MM-DD', true).isValid()) {
