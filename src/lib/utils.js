@@ -20,7 +20,7 @@ exports.get_start_date = () => {
    const args   = require('./args')
    const moment = require('moment')
 
-   // check moudle names
+   // check module names
    if (args._.length === 0) {
       return 'Please enter the module names at least one. \n'
    }
@@ -53,9 +53,12 @@ exports.get_end_date = () => {
    const args   = require('./args')
    const moment = require('moment')
 
-   // check moudle names
+   // check module names
    if (args._.length === 0) {
       return 'Please enter the module names at least one. \n'
+   }
+   if (!args.s) {
+      return 'Please enter the start date. \nBecause when using -s option, then start date is required. \n'
    }
    // check end date options
    if (args.e && !moment(args.e, 'YYYY-MM-DD', true).isValid()) {
