@@ -11,21 +11,21 @@ exports.show_help = (text) => {
 }
 
 /**
- * get from date by option
+ * get start date by option
  *
  * @param  {String} option
- * @return {String} from_date
+ * @return {String} start_date
  */
-exports.get_from_date = () => {
-   const args = require('./args')
+exports.get_start_date = () => {
+   const args   = require('./args')
    const moment = require('moment')
 
    // check moudle names
    if (args._.length === 0) {
       return 'Please enter the module names at least one. \n'
    }
-   // check from date options
-   if (args.f && !moment(args.f, 'YYYY-MM-DD', true).isValid()) {
+   // check end date options
+   if (args.e && !moment(args.e, 'YYYY-MM-DD', true).isValid()) {
       return 'Please enter the date correctly. \n'
    }
    if (args.m) {
@@ -40,5 +40,26 @@ exports.get_from_date = () => {
    if (args.w) {
       return moment().subtract(1, 'weeks').format('YYYY-MM-DD')
    }
-   return (args.f || moment().add(-1, 'days').format('YYYY-MM-DD'))
+   return (args.s || moment().add(-1, 'days').format('YYYY-MM-DD'))
+}
+
+/**
+ * get end date by option
+ *
+ * @param  {String} option
+ * @return {String} end_date
+ */
+exports.get_end_date = () => {
+   const args   = require('./args')
+   const moment = require('moment')
+
+   // check moudle names
+   if (args._.length === 0) {
+      return 'Please enter the module names at least one. \n'
+   }
+   // check end date options
+   if (args.e && !moment(args.e, 'YYYY-MM-DD', true).isValid()) {
+      return 'Please enter the date correctly. \n'
+   }
+   return (args.e || moment().format('YYYY-MM-DD'))
 }

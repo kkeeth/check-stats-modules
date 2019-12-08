@@ -1,6 +1,5 @@
 const npm    = require('npm-stats-api')
 const moment = require('moment')
-const yargs  = require('yargs')
 const chalk  = require('chalk')
 const args   = require('./args')
 const json2table = require('./json2table.js')
@@ -14,22 +13,26 @@ const utils = require('./utils')
  * @return void
  */
 module.exports = () => {
-   // set from date
-   const from = utils.get_from_date()
-   const today = moment().format('YYYY-MM-DD')
+   // set start date
+   const start = utils.get_start_date()
+   const end   = utils.get_end_date()
    const stats = []
 
-   if (`${new Date(from)}` === 'Invalid Date') {
-      utils.show_help(from)
+   if (`${new Date(start)}` === 'Invalid Date') {
+      utils.show_help(start)
+      return
+   }
+   if (`${new Date(end)}` === 'Invalid Date') {
+      utils.show_help(end)
       return
    }
 
    for (let mod of args._) {
-      npm.stat(mod, from, today, (err, res) => {
+      npm.stat(mod, start, end, (err, res) => {
          if (err) {
             res.downloads = res.error
-            res.start = from
-            res.end = today
+            res.start = start
+            res.end = end
             res.package = mod
             delete res.error
          }

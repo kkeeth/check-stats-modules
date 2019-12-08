@@ -1,11 +1,15 @@
 const chalk = require('chalk')
 module.exports = require('yargs')
-   .usage('Usage:\n' + ('' + chalk.green.bold('  $0 <module names> [-w | -m | -y | -t] [-f <YYYY-MM-DD>]\n')))
-   .example('' + chalk.green.bold('$0 cmd-ranking -f 2018-01-01'))
+   .usage('Usage:\n' + ('' + chalk.green.bold('  $0 <module names> [-w | -m | -y | -t] [-s <YYYY-MM-DD>] [-e <YYYY-MM-DD>]\n')))
+   .example('' + chalk.green.bold('$0 cmd-ranking -s 2018-01-01'))
    .options({
-      'f': {
-         alias: 'from',
-         describe: 'Specify the from of the period to be counted'
+      's': {
+         alias: 'start',
+         describe: 'Specify the start of the period to be counted'
+      },
+      'e': {
+         alias: 'end',
+         describe: 'Specify the end of the period to be counted'
       },
       'v': {
          alias: 'version',

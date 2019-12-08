@@ -39,7 +39,7 @@ $ csm check-stats-modules
 * check the stats of two modules from 2018-06-01
 
 ```cmd
-$ csm cmd-ranking check-stats-modules -f 2018-06-01
+$ csm cmd-ranking check-stats-modules -s 2018-06-01
 
 ╔═══════════╤════════════╤════════════╤═════════════════════╗
 ║ downloads ║ start      ║ end        ║ package             ║
@@ -67,7 +67,8 @@ $ csm cmd-ranking check-stats-modules -m
 ## Options
 
 ```
--f, --from       Specify the from of the period to be counted
+-s, --start      Specify the start of the period to be counted
+-e, --end        Specify the end of the period to be counted
 -v, --version    Show version number                                 [boolean]
 -y, --year       Set "from" 1 year                                   [boolean]
 -t, --this-year  Set "from" January 1 of this year                   [boolean]
