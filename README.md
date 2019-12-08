@@ -24,6 +24,8 @@ $ npm install -g check-stats-modules
 
 ## Usage (example)
 
+note: If the `-e` option(end date) is not specified, today's date is automatically specified.
+
 * check the stats of one module from yesterday
 
 ```cmd
