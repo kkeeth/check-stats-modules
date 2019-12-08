@@ -24,8 +24,8 @@ exports.get_start_date = () => {
    if (args._.length === 0) {
       return 'Please enter the module names at least one. \n'
    }
-   // check end date options
-   if (args.e && !moment(args.e, 'YYYY-MM-DD', true).isValid()) {
+   // check start date options
+   if (args.s && !moment(args.s, 'YYYY-MM-DD', true).isValid()) {
       return 'Please enter the date correctly. \n'
    }
    if (args.m) {
