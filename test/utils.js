@@ -9,124 +9,131 @@ const errorMessages = {
 
 // As these options are only processing of external libraries, check only one
 // 'week', 'month', 'year'
-test('check from date when -m option', async t => {
+test('check start date when -m option', async t => {
    const argsStub = {
-      f: false,
+      s: false,
+      e: false,
       m: true,
       y: false,
       t: false,
       w: false
    }
-   const {get_from_date} = proxyquire(`${rootDir}/utils`, {
+   const {get_start_date} = proxyquire(`${rootDir}/utils`, {
       './args': argsStub
    })
-   const actual = await get_from_date()
+   const actual = await get_start_date()
 
    t.true(typeof actual === 'string')
    t.true(actual.length === 10)
 })
 
-test('check from date when t option', async t => {
+test('check start date when t option', async t => {
    const argsStub = {
-      f: false,
+      s: false,
+      e: false,
       m: false,
       y: false,
       t: true,
       w: false
    }
-   const {get_from_date} = proxyquire(`${rootDir}/utils`, {
+   const {get_start_date} = proxyquire(`${rootDir}/utils`, {
       './args': argsStub
    })
-   const actual = await get_from_date()
+   const actual = await get_start_date()
 
    t.true(typeof actual === 'string')
    t.true(actual.length === 10)
    t.is(actual.substr(-6), '-01-01')
 })
 
-test('check from date when f option and set correct date', async t => {
+test('check start date when s option and set correct date', async t => {
    const argsStub = {
-      f: '2018-05-03',
+      s: '2018-05-03',
+      e: false,
       m: false,
       y: false,
       t: false, 
       w: false
    }
-   const {get_from_date} = proxyquire(`${rootDir}/utils`, {
+   const {get_start_date} = proxyquire(`${rootDir}/utils`, {
       './args': argsStub
    })
-   const actual = await get_from_date()
+   const actual = await get_start_date()
 
    t.true(typeof actual === 'string')
    t.true(actual.length === 10)
-   t.is(actual, argsStub.f)
+   t.is(actual, argsStub.s)
 })
 
-test('check from date when f option and specify empty string', async t => {
+test('check start date when s option and specify empty string', async t => {
    const argsStub = {
-      f: '',
+      s: '',
+      e: false,
       m: false,
       y: false,
       t: false, 
       w: false
    }
-   const {get_from_date} = proxyquire(`${rootDir}/utils`, {
+   const {get_start_date} = proxyquire(`${rootDir}/utils`, {
       './args': argsStub
    })
-   const actual = await get_from_date()
+   const actual = await get_start_date()
 
    t.true(typeof actual === 'string')
    t.true(actual.length === 10)
 })
 
-test('check from date when f option and specify incorrect date', async t => {
+test('check start date when s option and specify incorrect date', async t => {
    const argsStub = {
-      f: '2018-',
+      s: '2018-',
+      e: false,
       m: false,
       y: false,
       t: false, 
       w: false
    }
-   const {get_from_date} = proxyquire(`${rootDir}/utils`, {
+   const {get_start_date} = proxyquire(`${rootDir}/utils`, {
       './args': argsStub
    })
-   const error = await get_from_date()
+   const error = await get_start_date()
 
    t.is(error, errorMessages.dateFormatError)
 })
 
-test('check from date when f option and specify not exist date', async t => {
+test('check start date when s option and specify not exist date', async t => {
    const argsStub = {
-      f: '2018-15-89',
+      s: '2018-15-89',
+      e: false,
       m: false,
       y: false,
       t: false, 
       w: false
    }
 
-   const {get_from_date} = proxyquire(`${rootDir}/utils`, {
+   const {get_start_date} = proxyquire(`${rootDir}/utils`, {
       './args': argsStub
    })
 
-   const error = await get_from_date()
+   const error = await get_start_date()
 
    t.is(error, errorMessages.dateFormatError)
 })
 
-test('check from date when f option and specify symbols', async t => {
+test('check start date when s option and specify symbols', async t => {
    const argsStub = {
-      f: '!"#$%&()',
+      s: '!"#$%&()',
+      e: false,
       m: false,
       y: false,
       t: false, 
       w: false
    }
 
-   const {get_from_date} = proxyquire(`${rootDir}/utils`, {
+   const {get_start_date} = proxyquire(`${rootDir}/utils`, {
       './args': argsStub
    })
 
-   const error = await get_from_date()
+   const error = await get_start_date()
 
    t.is(error, errorMessages.dateFormatError)
 })
@@ -134,18 +141,19 @@ test('check from date when f option and specify symbols', async t => {
 test('check when module name is not specified', async t => {
    const argsStub = {
       _: [],
-      f: "2019-08-30",
+      s: "2019-08-30",
+      e: false,
       m: false,
       y: false,
       t: false,
       w: false
    }
 
-   const {get_from_date} = proxyquire(`${rootDir}/utils`, {
+   const {get_start_date} = proxyquire(`${rootDir}/utils`, {
       './args': argsStub
    })
 
-   const error = await get_from_date()
+   const error = await get_start_date()
 
    t.is(error, errorMessages.moduleNameNull)
 })
