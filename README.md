@@ -9,7 +9,7 @@
 [![npm version](https://badge.fury.io/js/check-stats-modules.svg)](https://badge.fury.io/js/check-stats-modules)
 [![Build Status](https://travis-ci.org/k-kuwahara/check-stats-modules.svg?branch=master)](https://travis-ci.org/k-kuwahara/check-stats-modules)
 [![Code Climate](https://codeclimate.com/github/k-kuwahara/check-stats-modules/badges/gpa.svg)](https://codeclimate.com/github/k-kuwahara/check-stats-modules)
-![node](https://img.shields.io/badge/node-%3E%3D%2010.16.0-brightgreen.svg?style=social)
+![node](https://img.shields.io/badge/node-%3E%3D%2012.18.3-brightgreen.svg?style=social)
 [![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE)
 
 # check-stats-modules
@@ -46,9 +46,9 @@ $ csm cmd-ranking check-stats-modules -s 2018-06-01
 ╔═══════════╤════════════╤════════════╤═════════════════════╗
 ║ downloads ║ start      ║ end        ║ package             ║
 ╟───────────┼────────────┼────────────┼─────────────────────╢
-║ 232       ║ 2018-06-01 ║ 2018-09-04 ║ cmd-ranking         ║
-╟───────────┼────────────┼────────────┼─────────────────────╢
 ║ 263       ║ 2018-06-01 ║ 2018-09-04 ║ check-stats-modules ║
+╟───────────┼────────────┼────────────┼─────────────────────╢
+║ 232       ║ 2018-06-01 ║ 2018-09-04 ║ cmd-ranking         ║
 ╚═══════════╧════════════╧════════════╧═════════════════════╝
 ```
 
@@ -60,9 +60,9 @@ $ csm cmd-ranking check-stats-modules -m
 ╔═══════════╤════════════╤════════════╤═════════════════════╗
 ║ downloads ║ start      ║ end        ║ package             ║
 ╟───────────┼────────────┼────────────┼─────────────────────╢
-║ 66        ║ 2018-08-04 ║ 2018-09-04 ║ cmd-ranking         ║
-╟───────────┼────────────┼────────────┼─────────────────────╢
 ║ 263       ║ 2018-08-04 ║ 2018-09-04 ║ check-stats-modules ║
+╟───────────┼────────────┼────────────┼─────────────────────╢
+║ 66        ║ 2018-08-04 ║ 2018-09-04 ║ cmd-ranking         ║
 ╚═══════════╧════════════╧════════════╧═════════════════════╝
 ```
 
