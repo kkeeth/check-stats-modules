@@ -69,3 +69,21 @@ exports.get_end_date = () => {
    }
    return (args.e || moment().format('YYYY-MM-DD'))
 }
+
+/**
+ * A method for comparing two values for sorting
+ *
+ * @param  {Object} first stats object in processing sort function
+ * @param  {Object} second stats object in processing sort function
+ * @return {Number} 0: equal, 1: a < b, -1: a > b
+ */
+exports.compare = (a, b) => {
+  if (a.downloads < b.downloads) {
+    return 1
+  }
+  if (a.downloads > b.downloads) {
+    return -1
+  }
+
+  return 0
+}

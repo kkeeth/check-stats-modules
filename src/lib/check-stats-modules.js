@@ -39,6 +39,8 @@ module.exports = () => {
          stats.push(res)
 
          if (args._.length === stats.length) {
+            // sort by downloads number
+            stats.sort(utils.compare)
             // Formatted and displayed in table format
             const ret = json2table(stats)
             ret.show()
