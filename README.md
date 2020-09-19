@@ -7,8 +7,8 @@
 ```
 
 [![npm version](https://badge.fury.io/js/check-stats-modules.svg)](https://badge.fury.io/js/check-stats-modules)
-[![Build Status](https://travis-ci.org/k-kuwahara/check-stats-modules.svg?branch=master)](https://travis-ci.org/k-kuwahara/check-stats-modules)
-[![Code Climate](https://codeclimate.com/github/k-kuwahara/check-stats-modules/badges/gpa.svg)](https://codeclimate.com/github/k-kuwahara/check-stats-modules)
+[![Build Status](https://travis-ci.org/kkeeth/check-stats-modules.svg?branch=master)](https://travis-ci.org/kkeeth/check-stats-modules)
+[![Code Climate](https://codeclimate.com/github/kkeeth/check-stats-modules/badges/gpa.svg)](https://codeclimate.com/github/kkeeth/check-stats-modules)
 ![node](https://img.shields.io/badge/node-%3E%3D%2012.18.3-brightgreen.svg?style=social)
 [![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE)
 
@@ -26,7 +26,7 @@ $ npm install -g check-stats-modules
 
 note: If the `-e` option(end date) is not specified, today's date is automatically specified.
 
-* check the stats of one module from yesterday
+- check the stats of one module from yesterday
 
 ```cmd
 $ csm check-stats-modules
@@ -38,7 +38,7 @@ $ csm check-stats-modules
 ╚═══════════╧════════════╧════════════╧═════════════════════╝
 ```
 
-* check the stats of two modules from 2018-06-01
+- check the stats of two modules from 2018-06-01
 
 ```cmd
 $ csm cmd-ranking check-stats-modules -s 2018-06-01
@@ -52,7 +52,7 @@ $ csm cmd-ranking check-stats-modules -s 2018-06-01
 ╚═══════════╧════════════╧════════════╧═════════════════════╝
 ```
 
-* check the stats of two modules from last month
+- check the stats of two modules from last month
 
 ```cmd
 $ csm cmd-ranking check-stats-modules -m
@@ -81,7 +81,8 @@ $ csm cmd-ranking check-stats-modules -m
 
 ## License
 
-[MIT](https://github.com/k-kuwahara/check-stats-modules/LICENSE)
+[MIT](https://github.com/kkeeth/check-stats-modules/LICENSE)
 
 # Others
-Please write a new [issues](https://github.com/k-kuwahara/check-stats-modules/issues)! Please send me [PRs](https://github.com/k-kuwahara/check-stats-modules/pulls)!
+
+Please write a new [issues](https://github.com/kkeeth/check-stats-modules/issues)! Please send me [PRs](https://github.com/kkeeth/check-stats-modules/pulls)!
