@@ -27,6 +27,12 @@ module.exports = () => {
       return
    }
 
+   // start date > end date
+   if (new Date(start).getTime() > new Date(end).getTime()) {
+      utils.show_help('The start date is specified to be later than the end date. \n\n')
+      return
+   }
+
    for (let mod of args._) {
       npm.stat(mod, start, end, (err, res) => {
          if (err) {
