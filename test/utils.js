@@ -22,6 +22,7 @@ test('check start date when -m option', async (t) => {
     y: false,
     t: false,
     w: false,
+    _: ['check-stats-modules'],
   }
   const { get_start_date } = proxyquire(`${rootDir}/utils`, {
     './args': argsStub,
@@ -40,6 +41,7 @@ test('check start date when -t option', async (t) => {
     y: false,
     t: true,
     w: false,
+    _: ['check-stats-modules'],
   }
   const { get_start_date } = proxyquire(`${rootDir}/utils`, {
     './args': argsStub,
@@ -59,6 +61,7 @@ test('check start date when specify correct date with -s option', async (t) => {
     y: false,
     t: false,
     w: false,
+    _: ['check-stats-modules'],
   }
   const { get_start_date } = proxyquire(`${rootDir}/utils`, {
     './args': argsStub,
@@ -78,6 +81,7 @@ test('check start date when specify empty string with -s option', async (t) => {
     y: false,
     t: false,
     w: false,
+    _: ['check-stats-modules'],
   }
   const { get_start_date } = proxyquire(`${rootDir}/utils`, {
     './args': argsStub,
@@ -97,6 +101,7 @@ test('check start date when specify incorrect da with -s option', async (t) => {
     y: false,
     t: false,
     w: false,
+    _: ['check-stats-modules'],
   }
   const { get_start_date } = proxyquire(`${rootDir}/utils`, {
     './args': argsStub,
@@ -114,6 +119,7 @@ test('check start date when specify not exist da with -s option', async (t) => {
     y: false,
     t: false,
     w: false,
+    _: ['check-stats-modules'],
   }
 
   const { get_start_date } = proxyquire(`${rootDir}/utils`, {
@@ -133,6 +139,7 @@ test('check start date when specify symbols with -s option', async (t) => {
     y: false,
     t: false,
     w: false,
+    _: ['check-stats-modules'],
   }
 
   const { get_start_date } = proxyquire(`${rootDir}/utils`, {
@@ -152,6 +159,7 @@ test('check start date when specify with no options', async (t) => {
     y: false,
     t: false,
     w: false,
+    _: ['check-stats-modules'],
   }
   const { get_start_date } = proxyquire(`${rootDir}/utils`, {
     './args': argsStub,
@@ -171,6 +179,7 @@ test('check end date when specify correct date with -s and -e option', async (t)
     y: false,
     t: false,
     w: false,
+    _: ['check-stats-modules'],
   }
   const { get_end_date } = proxyquire(`${rootDir}/utils`, {
     './args': argsStub,
@@ -191,6 +200,7 @@ test('check end date when specify correct date with -s option, but specify empty
     y: false,
     t: false,
     w: false,
+    _: ['check-stats-modules'],
   }
   const { get_end_date } = proxyquire(`${rootDir}/utils`, {
     './args': argsStub,
@@ -210,6 +220,7 @@ test('check start date when specify correct date with -s option, but specify inc
     y: false,
     t: false,
     w: false,
+    _: ['check-stats-modules'],
   }
   const { get_end_date } = proxyquire(`${rootDir}/utils`, {
     './args': argsStub,
@@ -227,6 +238,7 @@ test('check start date when specify correct date with -s option, but specify not
     y: false,
     t: false,
     w: false,
+    _: ['check-stats-modules'],
   }
 
   const { get_end_date } = proxyquire(`${rootDir}/utils`, {
@@ -246,6 +258,7 @@ test('check start date when does not specify -s option and specify correct date 
     y: false,
     t: false,
     w: false,
+    _: ['check-stats-modules'],
   }
 
   const { get_end_date } = proxyquire(`${rootDir}/utils`, {
@@ -265,6 +278,7 @@ test('check start date when specify correct date with -s option, but specify sym
     y: false,
     t: false,
     w: false,
+    _: ['check-stats-modules'],
   }
 
   const { get_end_date } = proxyquire(`${rootDir}/utils`, {
@@ -278,13 +292,13 @@ test('check start date when specify correct date with -s option, but specify sym
 
 test('check when module name is not specified', async (t) => {
   const argsStub = {
-    _: [],
     s: '2019-08-30',
     e: false,
     m: false,
     y: false,
     t: false,
     w: false,
+    _: [],
   }
 
   const { get_start_date } = proxyquire(`${rootDir}/utils`, {

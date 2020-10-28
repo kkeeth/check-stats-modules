@@ -1,3 +1,6 @@
+const args = require('./args')
+const moment = require('moment')
+
 /**
  * show help
  *
@@ -17,8 +20,6 @@ exports.show_help = (text) => {
  * @return {String} start_date
  */
 exports.get_start_date = () => {
-   const args   = require('./args')
-   const moment = require('moment')
 
    // check module names
    if (args._.length === 0) {
@@ -50,8 +51,6 @@ exports.get_start_date = () => {
  * @return {String} end_date
  */
 exports.get_end_date = () => {
-   const args   = require('./args')
-   const moment = require('moment')
 
    // check module names
    if (args._.length === 0) {
