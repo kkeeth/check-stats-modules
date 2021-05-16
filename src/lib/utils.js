@@ -1,6 +1,7 @@
 const args = require('./args')
 const {
    format,
+   parseISO,
    isValid,
    addDays,
    addWeeks,
@@ -34,8 +35,13 @@ exports.get_start_date = () => {
       return 'Please enter the module names at least one. \n'
    }
    // check start date options
-   if (args.s && !isValid(format(args.s, 'yyyy-MM-dd'))) {
-      return 'Please enter the date correctly. \n'
+   if (args.s) {
+      if (!/\d{4}-\d{2}-\d{2}/.test(args.s)) {
+         return 'Please enter the date correctly. \n'
+      }
+      if (!isValid(parseISO(args.s))) {
+         return 'Please enter the date correctly. \n'
+      }
    }
    if (args.m) {
       return format(addMonths(new Date(), -1), 'yyyy-MM-dd')
@@ -71,8 +77,13 @@ exports.get_end_date = () => {
       return format(new Date(), 'yyyy-MM-dd')
    }
    // check end date options
-   if (args.e && !isValid(format(args.e, 'yyyy-MM-dd'))) {
-      return 'Please enter the date correctly. \n'
+   if (args.e) {
+      if (!/\d{4}-\d{2}-\d{2}/.test(args.e)) {
+         return 'Please enter the date correctly. \n'
+      }
+      if (!isValid(parseISO(args.e))) {
+         return 'Please enter the date correctly. \n'
+      }
    }
    return (args.e || format(new Date(), 'yyyy-MM-dd'))
 }
