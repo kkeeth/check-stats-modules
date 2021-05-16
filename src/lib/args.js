@@ -1,4 +1,5 @@
 const chalk = require('chalk')
+
 module.exports = require('yargs')
    .usage('Usage:\n' + ('' + chalk.green.bold('  $0 <module names> [-w | -m | -y | -t] [-s <YYYY-MM-DD>] [-e <YYYY-MM-DD>]\n')))
    .example('' + chalk.green.bold('$0 cmd-ranking -s 2018-01-01'))

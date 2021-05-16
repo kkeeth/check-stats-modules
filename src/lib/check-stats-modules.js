@@ -1,7 +1,5 @@
-const npm    = require('npm-stats-api')
-const moment = require('moment')
-const chalk  = require('chalk')
-const args   = require('./args')
+const npm     = require('npm-stats-api')
+const args    = require('./args')
 const json2table = require('./json2table.js')
 const utils = require('./utils')
 
