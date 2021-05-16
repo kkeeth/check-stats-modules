@@ -1,5 +1,14 @@
 const args = require('./args')
-const moment = require('moment')
+const {
+   format,
+   parseISO,
+   isValid,
+   addDays,
+   addWeeks,
+   addMonths,
+   addYears,
+   getYear
+} = require('date-fns')
 
 /**
  * show help
@@ -26,22 +35,27 @@ exports.get_start_date = () => {
       return 'Please enter the module names at least one. \n'
    }
    // check start date options
-   if (args.s && !moment(args.s, 'YYYY-MM-DD', true).isValid()) {
-      return 'Please enter the date correctly. \n'
+   if (args.s) {
+      if (!/\d{4}-\d{2}-\d{2}/.test(args.s)) {
+         return 'Please enter the date correctly. \n'
+      }
+      if (!isValid(parseISO(args.s))) {
+         return 'Please enter the date correctly. \n'
+      }
    }
    if (args.m) {
-      return moment().subtract(1, 'months').format('YYYY-MM-DD')
+      return format(addMonths(new Date(), -1), 'yyyy-MM-dd')
    }
    if (args.y) {
-      return moment().subtract(1, 'years').format('YYYY-MM-DD')
+      return format(addYears(new Date(), -1), 'yyyy-MM-dd')
    }
    if (args.t) {
-      return moment().year() + '-01-01'
+      return `${getYear(new Date())}-01-01`
    }
    if (args.w) {
-      return moment().subtract(1, 'weeks').format('YYYY-MM-DD')
+      return format(addWeeks(new Date(), -1), 'yyyy-MM-dd')
    }
-   return (args.s || moment().add(-1, 'days').format('YYYY-MM-DD'))
+   return (args.s || format(addDays(new Date(), -1), 'yyyy-MM-dd'))
 }
 
 /**
@@ -60,13 +74,18 @@ exports.get_end_date = () => {
       return 'Please enter the start date. \nBecause when using -s option, then start date is required. \n'
    }
    if (!args.e || Object.keys(args).length === 2) {
-      return moment().format('YYYY-MM-DD')
+      return format(new Date(), 'yyyy-MM-dd')
    }
    // check end date options
-   if (args.e && !moment(args.e, 'YYYY-MM-DD', true).isValid()) {
-      return 'Please enter the date correctly. \n'
+   if (args.e) {
+      if (!/\d{4}-\d{2}-\d{2}/.test(args.e)) {
+         return 'Please enter the date correctly. \n'
+      }
+      if (!isValid(parseISO(args.e))) {
+         return 'Please enter the date correctly. \n'
+      }
    }
-   return (args.e || moment().format('YYYY-MM-DD'))
+   return (args.e || format(new Date(), 'yyyy-MM-dd'))
 }
 
 /**
