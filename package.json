@@ -18,7 +18,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.12.3",
-    "@babel/preset-env": "^7.12.1",
+    "@babel/preset-env": "^7.22.6",
     "ava": "^4.0.0",
     "babel-preset-es2015": "^6.24.1",
     "gulp": "^4.0.2",
