@@ -43,6 +43,6 @@
   },
   "homepage": "https://github.com/kkeeth/check-stats-modules#readme",
   "volta": {
-    "node": "18.18.2"
+    "node": "20.9.0"
   }
 }
