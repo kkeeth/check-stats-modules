@@ -9,7 +9,7 @@
 [![npm version](https://badge.fury.io/js/check-stats-modules.svg)](https://badge.fury.io/js/check-stats-modules)
 [![Build Status](https://travis-ci.org/kkeeth/check-stats-modules.svg?branch=master)](https://travis-ci.org/kkeeth/check-stats-modules)
 [![Code Climate](https://codeclimate.com/github/kkeeth/check-stats-modules/badges/gpa.svg)](https://codeclimate.com/github/kkeeth/check-stats-modules)
-![node](https://img.shields.io/badge/node-%3E%3D%2012.19.0-brightgreen.svg?style=social)
+![node](https://img.shields.io/badge/node-%3E%3D%2018.18.0-brightgreen.svg?style=social)
 [![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE)
 
 # check-stats-modules
@@ -31,11 +31,13 @@ note: If the `-e` option(end date) is not specified, today's date is automatical
 ```cmd
 $ csm check-stats-modules
 
-╔═══════════╤════════════╤════════════╤═════════════════════╗
-║ downloads ║ start      ║ end        ║ package             ║
-╟───────────┼────────────┼────────────┼─────────────────────╢
-║ 41        ║ 2018-09-03 ║ 2018-09-04 ║ check-stats-modules ║
-╚═══════════╧════════════╧════════════╧═════════════════════╝
+╔═════════════════════╤════════════╤════════════╤═══════════╗
+║ package             ║ start      ║ end        ║ downloads ║
+╟─────────────────────┼────────────┼────────────┼───────────╢
+║ check-stats-modules ║ 2023-11-03 ║ 2023-11-04 ║ 0         ║
+╟─────────────────────┼────────────┼────────────┼───────────╢
+║ Total               ║ 2023-11-03 ║ 2023-11-04 ║ 0         ║
+╚═════════════════════╧════════════╧════════════╧═══════════╝
 ```
 
 - check the stats of two modules from 2020-06-01
@@ -43,13 +45,15 @@ $ csm check-stats-modules
 ```cmd
 $ csm cmd-ranking check-stats-modules -s 2020-06-01
 
-╔═══════════╤════════════╤════════════╤═════════════════════╗
-║ downloads ║ start      ║ end        ║ package             ║
-╟───────────┼────────────┼────────────┼─────────────────────╢
-║ 175       ║ 2020-06-01 ║ 2020-10-27 ║ check-stats-modules ║
-╟───────────┼────────────┼────────────┼─────────────────────╢
-║ 122       ║ 2020-06-01 ║ 2020-10-27 ║ cmd-ranking         ║
-╚═══════════╧════════════╧════════════╧═════════════════════╝
+╔═════════════════════╤════════════╤════════════╤═══════════╗
+║ package             ║ start      ║ end        ║ downloads ║
+╟─────────────────────┼────────────┼────────────┼───────────╢
+║ check-stats-modules ║ 2020-06-01 ║ 2023-11-04 ║ 1249      ║
+╟─────────────────────┼────────────┼────────────┼───────────╢
+║ cmd-ranking         ║ 2020-06-01 ║ 2023-11-04 ║ 1140      ║
+╟─────────────────────┼────────────┼────────────┼───────────╢
+║ Total               ║ 2020-06-01 ║ 2023-11-04 ║ 2389      ║
+╚═════════════════════╧════════════╧════════════╧═══════════╝
 ```
 
 - check the stats of two modules from last month
@@ -57,21 +61,23 @@ $ csm cmd-ranking check-stats-modules -s 2020-06-01
 ```cmd
 $ csm cmd-ranking check-stats-modules -m
 
-╔═══════════╤════════════╤════════════╤═════════════════════╗
-║ downloads ║ start      ║ end        ║ package             ║
-╟───────────┼────────────┼────────────┼─────────────────────╢
-║ 42        ║ 2020-09-27 ║ 2020-10-27 ║ check-stats-modules ║
-╟───────────┼────────────┼────────────┼─────────────────────╢
-║ 19        ║ 2020-09-27 ║ 2020-10-27 ║ cmd-ranking         ║
-╚═══════════╧════════════╧════════════╧═════════════════════╝
+╔═════════════════════╤════════════╤════════════╤═══════════╗
+║ package             ║ start      ║ end        ║ downloads ║
+╟─────────────────────┼────────────┼────────────┼───────────╢
+║ check-stats-modules ║ 2023-10-04 ║ 2023-11-04 ║ 223       ║
+╟─────────────────────┼────────────┼────────────┼───────────╢
+║ cmd-ranking         ║ 2023-10-04 ║ 2023-11-04 ║ 115       ║
+╟─────────────────────┼────────────┼────────────┼───────────╢
+║ Total               ║ 2023-10-04 ║ 2023-11-04 ║ 338       ║
+╚═════════════════════╧════════════╧════════════╧═══════════╝
 ```
 
 ## Options
 
 ```
+    --version    Show version number                                 [boolean]
 -s, --start      Specify the start of the period to be counted
 -e, --end        Specify the end of the period to be counted
--v, --version    Show version number                                 [boolean]
 -y, --year       Set "from" 1 year                                   [boolean]
 -t, --this-year  Set "from" January 1 of this year                   [boolean]
 -m, --month      Set "from" 1 month                                  [boolean]
