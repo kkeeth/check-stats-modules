@@ -1,11 +1,4 @@
-import { jest } from "@jest/globals";
-
-import {
-  showHelp,
-  getStartDate,
-  getEndDate,
-  compare,
-} from "../src/lib/utils.js";
+import { getStartDate, getEndDate, compare } from "../lib/utils.js";
 
 const date = String(new Date().getDate());
 const month = String(new Date().getMonth() + 1);

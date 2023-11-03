@@ -6,8 +6,8 @@
   "main": "./lib/check-stats-modules",
   "type": "module",
   "bin": {
-    "check-stats-modules": "./src/bin/csm.js",
-    "csm": "./src/bin/csm.js"
+    "check-stats-modules": "./bin/csm.js",
+    "csm": "./bin/csm.js"
   },
   "dependencies": {
     "chalk": "^5.3.0",

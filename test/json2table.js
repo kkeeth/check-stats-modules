@@ -1,4 +1,4 @@
-import json2table from "../src/lib/json2table.js";
+import json2table from "../lib/json2table.js";
 
 test("json to table format ok", () => {
   const table = json2table({ hoge: "hoge" });
