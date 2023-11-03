@@ -8,7 +8,9 @@ import {
 } from "../src/lib/utils.js";
 
 const date = String(new Date().getDate());
+const month = String(new Date().getMonth() + 1);
 const todayDate = date.length === 2 ? date : `0${date}`;
+const todayMonth = month.length === 2 ? month : `0${month}`;
 const yesterdayDate = date.length === 2 ? date - 1 : `0${date - 1}`;
 
 const errorMessages = {
@@ -35,7 +37,7 @@ test.concurrent("check start date when -m option", async () => {
 
   expect(typeof actual).toBe("string");
   expect(actual.length).toBe(10);
-  expect(actual.split("-")[2]).toBe(todayDate);
+  expect(actual.split("-")[1]).toBe(todayMonth);
 });
 
 test.concurrent("check start date when -t option", async () => {
@@ -52,7 +54,8 @@ test.concurrent("check start date when -t option", async () => {
 
   expect(typeof actual).toBe("string");
   expect(actual.length).toBe(10);
-  expect(actual.substr(-6)).toBe("-01-01");
+  expect(actual.split("-")[1]).toBe("01");
+  expect(actual.split("-")[2]).toBe("01");
 });
 
 test.concurrent(
