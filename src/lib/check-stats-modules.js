@@ -1,7 +1,8 @@
-const npm     = require('npm-stats-api')
-const args    = require('./args')
-const json2table = require('./json2table.js')
-const utils = require('./utils')
+import npm from "npm-stats-api";
+import chalk from "chalk";
+import args from "./args.js";
+import json2table from "./json2table.js";
+import { showHelp, getStartDate, getEndDate, compare } from "./utils.js";
 
 /**
  * show stats about modules
@@ -10,45 +11,49 @@ const utils = require('./utils')
  * @param  void
  * @return void
  */
-module.exports = () => {
-   // set start date
-   const start = utils.get_start_date()
-   const end   = utils.get_end_date()
-   const stats = []
+export default () => {
+  // set start date
+  const start = getStartDate();
+  const end = getEndDate();
+  const stats = [];
 
-   if (`${new Date(start)}` === 'Invalid Date') {
-      utils.show_help(start)
-      return
-   }
-   if (`${new Date(end)}` === 'Invalid Date') {
-      utils.show_help(end)
-      return
-   }
+  if (`${new Date(start)}` === "Invalid Date") {
+    showHelp(start);
+    return;
+  }
+  if (`${new Date(end)}` === "Invalid Date") {
+    showHelp(end);
+    return;
+  }
 
-   // start date > end date
-   if (new Date(start).getTime() > new Date(end).getTime()) {
-      utils.show_help('The start date is specified to be later than the end date. \n\n')
-      return
-   }
+  // start date > end date
+  if (new Date(start).getTime() > new Date(end).getTime()) {
+    showHelp("The start date is specified to be later than the end date. \n\n");
+    return;
+  }
 
-   for (let mod of args._) {
-      npm.stat(mod, start, end, (err, res) => {
-         if (err) {
-            res.downloads = res.error
-            res.start = start
-            res.end = end
-            res.package = mod
-            delete res.error
-         }
-         stats.push(res)
-
-         if (args._.length === stats.length) {
-            // sort by downloads number
-            stats.sort(utils.compare)
-            // Formatted and displayed in table format
-            const ret = json2table(stats)
-            ret.show()
-         }
+  for (let mod of args._) {
+    npm
+      .stat(mod, start, end)
+      .then((res) => {
+        stats.push(res.body);
       })
-   }
-}
+      .catch((err) => {
+        stats.push({
+          downloads: chalk.red.bold(err.body.error),
+          start: start,
+          end: end,
+          package: mod,
+        });
+      })
+      .finally(() => {
+        if (args._.length === stats.length) {
+          // sort by downloads number
+          stats.sort(compare);
+          // Formatted and displayed in table format
+          const ret = json2table(stats);
+          ret.show();
+        }
+      });
+  }
+};

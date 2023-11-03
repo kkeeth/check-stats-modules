@@ -1,3 +1,5 @@
-#!/usr/bin/env node
+#! /usr/bin/env node
 
-require('../lib/check-stats-modules')()
+import checkStatsModules from "../lib/check-stats-modules.js";
+
+checkStatsModules();
