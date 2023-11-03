@@ -13,8 +13,8 @@ import { showHelp, getStartDate, getEndDate, compare } from "./utils.js";
  */
 export default () => {
   // set start date
-  const start = getStartDate();
-  const end = getEndDate();
+  const start = getStartDate(args);
+  const end = getEndDate(args);
   const stats = [];
 
   if (`${new Date(start)}` === "Invalid Date") {

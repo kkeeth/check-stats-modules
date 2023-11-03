@@ -1,6 +1,5 @@
 import chalk from "chalk";
 import yargs from "yargs";
-import args from "./args.js";
 import {
   format,
   parseISO,
@@ -26,10 +25,10 @@ const showHelp = (text) => {
 /**
  * get start date by option
  *
- * @param  {String} option
- * @return {String} start_date
+ * @param  {String} args
+ * @return {String} start date 'yyyy-MM-dd' format
  */
-const getStartDate = () => {
+const getStartDate = (args) => {
   // check module names
   if (args._.length === 0) {
     return "Please enter the module names at least one. \n";
@@ -44,7 +43,7 @@ const getStartDate = () => {
     }
   }
   if (args.m) {
-    return format(addMonths(new Date(), -1), "yyyy-MM-dd");
+    return format(addMonths(new Date(), 0), "yyyy-MM-dd");
   }
   if (args.y) {
     return format(addYears(new Date(), -1), "yyyy-MM-dd");
@@ -61,10 +60,10 @@ const getStartDate = () => {
 /**
  * get end date by option
  *
- * @param  {String} option
- * @return {String} end_date
+ * @param  {String} args
+ * @return {String} end date 'yyyy-MM-dd' format
  */
-const getEndDate = () => {
+const getEndDate = (args) => {
   // check module names
   if (args._.length === 0) {
     return "Please enter the module names at least one. \n";
