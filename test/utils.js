@@ -4,7 +4,7 @@ const date = String(new Date().getDate());
 const month = String(new Date().getMonth());
 const todayDate = date.length === 2 ? date : `0${date}`;
 const todayMonth = month.length === 2 ? month : `0${month}`;
-const yesterdayDate = date.length === 2 ? date - 1 : `0${date - 1}`;
+const yesterdayDate = date.length === 2 ? String(date - 1) : `0${date - 1}`;
 
 const errorMessages = {
   dateFormatError: "Please enter the date correctly. \n",
