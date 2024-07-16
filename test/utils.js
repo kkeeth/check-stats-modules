@@ -1,4 +1,4 @@
-import { getStartDate, getEndDate, compare } from "../lib/utils.js";
+import { getStartDate, getEndDate, compare, isMonthName } from "../lib/utils.js";
 
 const date = String(new Date().getDate());
 const month = String(new Date().getMonth());
@@ -341,3 +341,41 @@ test.concurrent(
     expect(expected).toBe(actual);
   }
 );
+
+test.concurrent(
+  "check that true is returned when the -M option is specified",
+  async (t) => {
+     let argsStub = 'January';
+    let actual = await isMonthName(argsStub);
+    expect(actual).toBe(true);
+
+    argsStub = 'jan';
+    actual = await isMonthName(argsStub);
+    expect(actual).toBe(true);
+
+    argsStub = 'Feb';
+    actual = await isMonthName(argsStub);
+    expect(actual).toBe(true);
+
+    argsStub = 'DeCemBEr';
+    actual = await isMonthName(argsStub);
+    expect(actual).toBe(true);
+  }
+)
+
+test.concurrent(
+  "check that false is returned when the -M option is specified but the argument is not a month name",
+  async (t) => {
+    let argsStub = 'Januar';
+    let actual = await isMonthName(argsStub);
+    expect(actual).toBe(false);
+
+    argsStub = 'xyz';
+    actual = await isMonthName(argsStub);
+    expect(actual).toBe(false);
+
+    argsStub = true;
+    actual = await isMonthName(argsStub);
+    expect(actual).toBe(false);
+  }
+)
