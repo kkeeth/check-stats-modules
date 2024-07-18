@@ -85,15 +85,16 @@ $ csm cmd-ranking check-stats-modules -m -T
 ## Options
 
 ```
-    --version    Show version number                                 [boolean]
--s, --start      Specify the start of the period to be counted
--e, --end        Specify the end of the period to be counted
--y, --year       Set "from" 1 year                                   [boolean]
--t, --this-year  Set "from" January 1 of this year                   [boolean]
--m, --month      Set "from" 1 month                                  [boolean]
--w, --week       Set "from" 1 week                                   [boolean]
--T, --total      Show the total count of specified modules           [boolean]
--h, --help       Show help                                           [boolean]
+    --version        Show version number                             [boolean]
+-s, --start          Specify the start of the period to be counted
+-e, --end            Specify the end of the period to be counted
+-y, --year           Set "from" 1 year                               [boolean]
+-t, --this-year      Set "from" January 1 of this year               [boolean]
+-m, --month          Set "from" 1 month                              [boolean]
+-M, --specify-month  Set the month to be counted (but only this year)
+-w, --week           Set "from" 1 week                               [boolean]
+-T, --total          Show the total count of specified modules       [boolean]
+-h, --help           Show help                                       [boolean]
 ```
 
 ## License
