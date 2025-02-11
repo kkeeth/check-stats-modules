@@ -45,6 +45,6 @@
   },
   "homepage": "https://github.com/kkeeth/check-stats-modules#readme",
   "volta": {
-    "node": "20.15.1"
+    "node": "22.14.0"
   }
 }
