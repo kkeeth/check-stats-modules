@@ -8,12 +8,18 @@ import {
   isMonthName,
   getMonthBounds,
 } from "../lib/utils.js";
+import { startOfYesterday } from "date-fns";
 
 const date = String(new Date().getDate());
 const month = String(new Date().getMonth());
 const todayDate = date.length === 2 ? date : `0${date}`;
-const todayMonth = month.length === 2 ? month : `0${month}`;
-const yesterdayDate = date.length === 2 ? String(date - 1) : `0${date - 1}`;
+const lastMonth = month !== "0" && month.length === 2 ? month : `0${month}`;
+const yesterdayDate =
+  date !== "1"
+    ? date.length === 2
+      ? String(date - 1)
+      : `0${date - 1}`
+    : String(startOfYesterday().getDate());
 
 const errorMessages = {
   dateFormatError: chalk.yellow.bold("Please enter the date correctly. \n"),
@@ -63,7 +69,7 @@ describe("-m option tests", () => {
 
     expect(typeof actual).toBe("string");
     expect(actual.length).toBe(10);
-    expect(actual.split("-")[1]).toBe(todayMonth);
+    expect(actual.split("-")[1]).toBe(lastMonth);
   });
 });
 
@@ -84,6 +90,44 @@ describe("-t option tests", () => {
     expect(actual.length).toBe(10);
     expect(actual.split("-")[1]).toBe("01");
     expect(actual.split("-")[2]).toBe("01");
+  });
+
+  test.concurrent("check end date when -t option", () => {
+    const argsStub = {
+      s: false,
+      e: false,
+      m: false,
+      y: false,
+      t: true,
+      w: false,
+      _: ["check-stats-modules"],
+    };
+    const actual = getEndDate(argsStub);
+
+    expect(typeof actual).toBe("string");
+    expect(actual.length).toBe(10);
+    expect(actual.split("-")[1]).toBe(lastMonth);
+    expect(actual.split("-")[2]).toBe(yesterdayDate);
+  });
+});
+
+describe("-y option tests", () => {
+  test.concurrent("check end date when -y option", () => {
+    const argsStub = {
+      s: false,
+      e: false,
+      m: false,
+      y: true,
+      t: true,
+      w: false,
+      _: ["check-stats-modules"],
+    };
+    const actual = getEndDate(argsStub);
+
+    expect(typeof actual).toBe("string");
+    expect(actual.length).toBe(10);
+    expect(actual.split("-")[1]).toBe(lastMonth);
+    expect(actual.split("-")[2]).toBe(yesterdayDate);
   });
 });
 
