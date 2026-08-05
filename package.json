@@ -45,7 +45,7 @@
   },
   "homepage": "https://github.com/kkeeth/check-stats-modules#readme",
   "volta": {
-    "node": "24.18.1"
+    "node": "24.19.0"
   },
   "packageManager": "pnpm@11.18.0"
 }
